@@ -1,0 +1,15 @@
+[Unit]
+Description=Sporadic News Consumer Timer - Check queue every 30 minutes
+Requires=consumer.service
+
+[Timer]
+# Check queue every 30 minutes (adjust as needed)
+OnCalendar=*-*-* *:00/30:00
+# Run 2 minutes after boot if missed
+OnBootSec=2min
+# Run 30 minutes after last activation if missed
+OnUnitActiveSec=30min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

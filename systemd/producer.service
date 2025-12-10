@@ -1,0 +1,14 @@
+[Unit]
+Description=Sporadic News Producer - Generate news posts
+After=network.target
+
+[Service]
+Type=oneshot
+User=YOUR_USERNAME
+WorkingDirectory=/path/to/sporadic_news
+ExecStart=/usr/bin/python3 main.py --once
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

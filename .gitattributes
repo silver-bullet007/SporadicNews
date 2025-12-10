@@ -1,0 +1,42 @@
+# Default behavior: normalize line endings to LF in repo,
+# but allow Windows users to check out as CRLF if they want.
+* text=auto
+
+# Shell scripts must always use LF (important!)
+*.sh text eol=lf
+
+# Systemd and Linux-related files always LF
+*.service text eol=lf
+*.timer text eol=lf
+
+# Windows batch scripts always CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# PowerShell scripts can use CRLF safely
+*.ps1 text eol=crlf
+
+# Markdown, HTML, CSS, JS, JSON – normalize only
+*.md text
+*.html text
+*.css text
+*.js text
+*.json text
+
+# Images and binaries (no diffing)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.zip binary
+*.exe binary
+*.dll binary
+*.so binary
+
+# Dockerfiles, CI configs (LF)
+Dockerfile text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+

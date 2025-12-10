@@ -1,0 +1,16 @@
+[Unit]
+Description=Sporadic News Consumer - Post queued news to Twitter
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_USERNAME
+WorkingDirectory=/path/to/sporadic_news
+ExecStart=/usr/bin/python3 post_worker.py
+Restart=on-failure
+RestartSec=60
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
